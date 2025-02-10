@@ -1,0 +1,60 @@
+<script setup lang="ts">
+import type { Props } from '../DetailForm/index.vue'
+import DetailForm from '../DetailForm/index.vue'
+
+const props = defineProps<{
+  mode: 'dialog' | 'drawer'
+} & Props>()
+
+const emits = defineEmits<{
+  success: []
+}>()
+
+const visible = defineModel<boolean>({
+  default: false,
+})
+
+const formRef = useTemplateRef('formRef')
+
+const title = computed(() => props.id === '' ? '新增{{ cname }}' : '编辑{{ cname }}')
+
+function onSubmit() {
+  // submit() 为组件内部方法
+  formRef.value?.submit().then(() => {
+    emits('success')
+    onCancel()
+  })
+}
+
+function onCancel() {
+  visible.value = false
+}
+</script>
+
+<template>
+  <div>
+    {{!-- 为什么需要在 dialog 关闭的时候销毁 dialog 中的元素？因为该 dialog 为详情表单，新增的时候会用到，编辑的时候也会用到，不销毁则需要增加代码做处理，例如需要监听当传入的 id，当变 id 更后，需要重新执行生命周期进行表单初始化，同时关闭 dialog 时还需要清空表单，避免出现再次打开 dialog 时表单还保留上一次的信息数据，当表单复杂度上去后，维护这块的成本过高，drawer 同理 --}}
+    <ElDialog v-if="props.mode === 'dialog'" v-model="visible" :title="title" width="600px" :close-on-click-modal="false" append-to-body destroy-on-close>
+      <DetailForm ref="formRef" v-bind="$props" />
+      <template #footer>
+        <ElButton size="large" @click="onCancel">
+          取消
+        </ElButton>
+        <ElButton type="primary" size="large" @click="onSubmit">
+          确定
+        </ElButton>
+      </template>
+    </ElDialog>
+    <ElDrawer v-else-if="props.mode === 'drawer'" v-model="visible" :title="title" size="600px" :close-on-click-modal="false" destroy-on-close>
+      <DetailForm ref="formRef" v-bind="$props" />
+      <template #footer>
+        <ElButton size="large" @click="onCancel">
+          取消
+        </ElButton>
+        <ElButton type="primary" size="large" @click="onSubmit">
+          确定
+        </ElButton>
+      </template>
+    </ElDrawer>
+  </div>
+</template>

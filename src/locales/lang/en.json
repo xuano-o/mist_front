@@ -1,0 +1,25 @@
+{
+  "app": {
+    "route": {
+      "undefined": "[ No title ]",
+      "reload": "Reloading...",
+      "home": "Home",
+      "login": "Login"
+    }
+  },
+  "route": {
+    "multimenu": {
+      "root": "Multi-level navigation",
+      "page": "Navigation 1",
+      "level2": {
+        "root": "Navigation 2",
+        "page": "Navigation 2-1",
+        "level3": {
+          "root": "Navigation 3",
+          "page1": "Navigation 2-2-1",
+          "page2": "Navigation 2-2-2"
+        }
+      }
+    }
+  }
+}

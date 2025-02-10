@@ -1,0 +1,33 @@
+import api from '../index'
+
+export default {
+  list: (data: {
+    title?: string
+    from: number
+    limit: number
+  }) => api.get('{{#if relativePath}}{{ relativePath }}/{{/if}}{{ snakeCase moduleName }}/list', {
+    params: data,
+    baseURL: '/mock/',
+  }),
+
+  detail: (id: number | string) => api.get('{{#if relativePath}}{{ relativePath }}/{{/if}}{{ snakeCase moduleName }}/detail', {
+    params: {
+      id,
+    },
+    baseURL: '/mock/',
+  }),
+
+  create: (data: any) => api.post('{{#if relativePath}}{{ relativePath }}/{{/if}}{{ snakeCase moduleName }}/create', data, {
+    baseURL: '/mock/',
+  }),
+
+  edit: (data: any) => api.post('{{#if relativePath}}{{ relativePath }}/{{/if}}{{ snakeCase moduleName }}/edit', data, {
+    baseURL: '/mock/',
+  }),
+
+  delete: (id: number | string) => api.post('{{#if relativePath}}{{ relativePath }}/{{/if}}{{ snakeCase moduleName }}/delete', {
+    id,
+  }, {
+    baseURL: '/mock/',
+  }),
+}

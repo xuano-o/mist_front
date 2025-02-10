@@ -1,0 +1,25 @@
+{
+  "app": {
+    "route": {
+      "undefined": "[ 无标题 ]",
+      "reload": "重新加载中...",
+      "home": "主页",
+      "login": "登录"
+    }
+  },
+  "route": {
+    "multimenu": {
+      "root": "多级导航",
+      "page": "导航1",
+      "level2": {
+        "root": "导航2",
+        "page": "导航2-1",
+        "level3": {
+          "root": "导航3",
+          "page1": "导航2-2-1",
+          "page2": "导航2-2-2"
+        }
+      }
+    }
+  }
+}
