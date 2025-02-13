@@ -6,20 +6,20 @@ function Layout() {
 }
 
 const routes: RouteRecordRaw = {
-  path: '/multilevel_menu_example',
+  path: '/main_page',
   component: Layout,
-  redirect: '/multilevel_menu_example/page',
-  name: 'multilevelMenuExample',
+  redirect: '/main_page/main_page',
+  name: 'main_page',
   meta: {
-    title: $t('route.multimenu.root'),
-    icon: 'i-heroicons-solid:menu-alt-3',
+    title: $t('首页'),
+    icon: 'main_page',
   },
   children: [
     {
       path: '',
-      component: () => import('@/views/multilevel_menu_example/page.vue'),
+      component: () => import('@/views/main_page/main_page.vue'),
       meta: {
-        title: '权限验证',
+        title: '首页',
         menu: false,
       },
     },

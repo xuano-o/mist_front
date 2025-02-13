@@ -6,20 +6,20 @@ function Layout() {
 }
 
 const routes: RouteRecordRaw = {
-  path: '/multilevel_menu_example',
+  path: '/stock_inquiry',
   component: Layout,
-  redirect: '/multilevel_menu_example/page',
-  name: 'multilevelMenuExample',
+  redirect: '/stock_inquiry/stock_inquiry',
+  name: 'stock_inquiry',
   meta: {
-    title: $t('route.multimenu.root'),
-    icon: 'i-heroicons-solid:menu-alt-3',
+    title: $t('个股查询'),
+    icon: 'stock_inquiry',
   },
   children: [
     {
       path: '',
-      component: () => import('@/views/multilevel_menu_example/page.vue'),
+      component: () => import('@/views/stock_inquiry/stock_inquiry.vue'),
       meta: {
-        title: '权限验证',
+        title: '个股查询',
         menu: false,
       },
     },

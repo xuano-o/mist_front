@@ -6,20 +6,20 @@ function Layout() {
 }
 
 const routes: RouteRecordRaw = {
-  path: '/multilevel_menu_example',
+  path: '/AI',
   component: Layout,
-  redirect: '/multilevel_menu_example/page',
-  name: 'multilevelMenuExample',
+  redirect: '/AI/AI',
+  name: 'AI',
   meta: {
-    title: $t('route.multimenu.root'),
-    icon: 'i-heroicons-solid:menu-alt-3',
+    title: $t('AI助手'),
+    icon: 'AI',
   },
   children: [
     {
       path: '',
-      component: () => import('@/views/multilevel_menu_example/page.vue'),
+      component: () => import('@/views/AI/AI.vue'),
       meta: {
-        title: '权限验证',
+        title: 'AI助手',
         menu: false,
       },
     },

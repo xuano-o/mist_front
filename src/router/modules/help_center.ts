@@ -6,20 +6,20 @@ function Layout() {
 }
 
 const routes: RouteRecordRaw = {
-  path: '/multilevel_menu_example',
+  path: '/help_center',
   component: Layout,
-  redirect: '/multilevel_menu_example/page',
-  name: 'multilevelMenuExample',
+  redirect: '/help_center/help_center',
+  name: 'help_center',
   meta: {
-    title: $t('route.multimenu.root'),
-    icon: 'i-heroicons-solid:menu-alt-3',
+    title: $t('帮助中心'),
+    icon: 'help_center',
   },
   children: [
     {
       path: '',
-      component: () => import('@/views/multilevel_menu_example/page.vue'),
+      component: () => import('@/views/help_center/help_center.vue'),
       meta: {
-        title: '权限验证',
+        title: '帮助中心',
         menu: false,
       },
     },

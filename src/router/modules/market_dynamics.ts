@@ -6,20 +6,20 @@ function Layout() {
 }
 
 const routes: RouteRecordRaw = {
-  path: '/multilevel_menu_example',
+  path: '/market_dynamics',
   component: Layout,
-  redirect: '/multilevel_menu_example/page',
-  name: 'multilevelMenuExample',
+  redirect: '/market_dynamics/market_dynamics',
+  name: 'market_dynamics',
   meta: {
-    title: $t('route.multimenu.root'),
-    icon: 'i-heroicons-solid:menu-alt-3',
+    title: $t('市场动态'),
+    icon: 'market_dynamics',
   },
   children: [
     {
       path: '',
-      component: () => import('@/views/multilevel_menu_example/page.vue'),
+      component: () => import('@/views/market_dynamics/market_dynamics.vue'),
       meta: {
-        title: '权限验证',
+        title: '市场动态',
         menu: false,
       },
     },

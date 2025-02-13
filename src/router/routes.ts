@@ -5,7 +5,13 @@ import pinia from '@/store'
 import useSettingsStore from '@/store/modules/settings'
 import generatedRoutes from 'virtual:generated-pages'
 import { setupLayouts } from 'virtual:meta-layouts'
-import MultilevelMenuExample from './modules/multilevel.menu.example'
+import AI from './modules/AI'
+import HelpCenter from './modules/help_center.ts'
+// import MultilevelMenuExample from './modules/multilevel.menu.example'
+import MainPage from './modules/main_page.ts'
+import MarketDynamics from './modules/market_dynamics'
+import MarketIndex from './modules/market_index'
+import StockInquiry from './modules/stock_inquiry'
 
 // 固定路由（默认路由）
 const constantRoutes: RouteRecordRaw[] = [
@@ -67,7 +73,13 @@ const asyncRoutes: Route.recordMainRaw[] = [
       icon: 'i-uim:box',
     },
     children: [
-      MultilevelMenuExample,
+      // MultilevelMenuExample,
+      MainPage,
+      StockInquiry,
+      MarketIndex,
+      MarketDynamics,
+      AI,
+      HelpCenter,
     ],
   },
 ]
